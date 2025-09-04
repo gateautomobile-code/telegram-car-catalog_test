@@ -2,7 +2,7 @@ import type { Car, Currency } from '../types';
 
 const FEED_URL = 'https://autos.autocrm.ru/api/auto-ru/feed?id=jtEjHMTcfwjkVwRngrnbRw%3D%3D&isUsed=0';
 // Using a more reliable CORS proxy to prevent recurring data fetching errors.
-const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(FEED_URL)}`;
+const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(FEED_URL)}`;
 
 
 const getSafeTextContent = (element: Element, tagName: string): string => {
