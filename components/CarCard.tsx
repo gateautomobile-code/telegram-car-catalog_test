@@ -49,6 +49,8 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
   };
   const availabilityClass = availabilityStyles[car.availability] || 'bg-gray-100 text-gray-600';
 
+  const showElectro = !car.engineVolume || car.engineVolume === '-';
+
   return (
     <div className="bg-white rounded-[2rem] shadow-sm overflow-hidden flex flex-col h-full group">
       <div className="p-4 flex-grow flex flex-col">
@@ -74,10 +76,10 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
            </div>
             <div className="flex flex-wrap items-center gap-2 mt-2">
               <div className={`text-xs font-semibold px-3 py-1 rounded-full ${availabilityClass}`}>{car.availability}</div>
-              {car.engineVolume ? (
-                <div className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">{car.engineVolume} см²</div>
-              ) : (
+              {showElectro ? (
                 <div className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">Электро</div>
+              ) : (
+                <div className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">{car.engineVolume} см²</div>
               )}
               {car.enginePower && (
                 <div className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">{car.enginePower} л.с.</div>
