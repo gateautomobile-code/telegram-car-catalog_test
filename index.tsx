@@ -140,7 +140,7 @@ const ArrowUpDownIcon: React.FC = () => (
 
 // --- START OF SERVICES ---
 const FEED_URL = 'https://autos.autocrm.ru/api/auto-ru/feed?id=jtEjHMTcfwjkVwRngrnbRw%3D%3D&isUsed=0';
-const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(FEED_URL)}`;
+const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(FEED_URL)}`;
 
 const getSafeTextContent = (element: Element, tagName: string): string => {
   return element.getElementsByTagName(tagName)[0]?.textContent?.trim() ?? '';
@@ -198,7 +198,7 @@ const fetchAndParseCars = async (): Promise<Car[]> => {
     }).filter(car => car.id);
   } catch (error) {
     console.error("Error in fetchAndParseCars:", error);
-    throw new Error("Could not retrieve or process car data. Please check the network connection and feed format.");
+    throw new Error("Не удалось загрузить данные об автомобилях. Пожалуйста, проверьте ваше интернет-соединение и попробуйте еще раз.");
   }
 };
 // --- END OF SERVICES ---
